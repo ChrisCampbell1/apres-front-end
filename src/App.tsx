@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
+import Confirmation from './pages/Confirmation/Confirmation'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -44,15 +45,16 @@ function App(): JSX.Element {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-        <Route path="/all" element={<CategoryPage category=""/>} />
-        <Route path="/skis" element={<CategoryPage category="Skis"/>} />
-        <Route path="/ski-boots" element={<CategoryPage category="Ski-Boots"/>} />
-        <Route path="/poles" element={<CategoryPage category="Poles"/>} />
-        <Route path="/accessories" element={<CategoryPage category="Accessories"/>} />
-        <Route path="/clothing" element={<CategoryPage category="Clothing"/>} />
-        <Route path="/snowboards" element={<CategoryPage category="Snowboards"/>} />
-        <Route path="/snowboard-boots" element={<CategoryPage category="Snowboard-Boots"/>} />
-        <Route path="/other" element={<CategoryPage category="Other"/>} />
+        <Route path="/all" element={<CategoryPage category="" user={user}/>} />
+        <Route path="/skis" element={<CategoryPage category="Skis" user={user}/>} />
+        <Route path="/ski-boots" element={<CategoryPage category="Ski-Boots" user={user}/>} />
+        <Route path="/poles" element={<CategoryPage category="Poles"  user={user}/>} />
+        <Route path="/accessories" element={<CategoryPage category="Accessories" user={user}/>} />
+        <Route path="/clothing" element={<CategoryPage category="Clothing" user={user}/>} />
+        <Route path="/snowboards" element={<CategoryPage category="Snowboards" user={user}/>} />
+        <Route path="/snowboard-boots" element={<CategoryPage category="Snowboard-Boots" user={user}/>} />
+        <Route path="/other" element={<CategoryPage category="Other" user={user}/>} />
+        <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/listings/:id" element={<ProductDetail />}/>
         <Route
           path="/signup"

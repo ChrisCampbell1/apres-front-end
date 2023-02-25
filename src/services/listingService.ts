@@ -1,3 +1,6 @@
+// services
+import * as tokenService from './tokenService'
+
 // types
 import { Listing } from '../types/models'
 
@@ -21,10 +24,21 @@ async function getListing(id: string | undefined): Promise<Listing> {
   }
 }
 
+async function purchaseListing(id: number | undefined): Promise<Listing> {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/purchase`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+    return await res.json() as Listing
+  } catch (error) {
+    throw error
+  }
+}
 
 
 
 
 
 
-export { getListings, getListing }
+export { getListings, getListing, purchaseListing }

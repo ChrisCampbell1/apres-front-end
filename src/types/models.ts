@@ -14,6 +14,7 @@ export interface Listing {
   yearManufactured: number;
   dimensions: string;
   material: string;
+  price: number;
 }
 
 

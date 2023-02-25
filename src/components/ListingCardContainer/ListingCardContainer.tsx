@@ -5,21 +5,22 @@ import styles from './ListingCardContainer.module.css'
 import ListingCard from '../ListingCard/ListingCard'
 
 //types
-import {Listing} from '../../types/models'
+import {Listing, User} from '../../types/models'
 
 interface ListingCardContainerProps {
-  listings: Listing[]
+  listings: Listing[];
+  user: User | null;
 }
 
 const ListingCardContainer = (props: ListingCardContainerProps): JSX.Element => {
-  const { listings } = props
+  const { listings, user } = props
 
 
   return (  
     <div className={styles.container}>
       this is a ListingCardContainer
       {listings.map((listing) =>
-      <ListingCard key={listing.id} listing={listing}/>
+      <ListingCard key={listing.id} listing={listing} user={user}/>
       )}
     </div>
   )

@@ -12,15 +12,16 @@ import ListingCardContainer from '../../components/ListingCardContainer/ListingC
 import * as listingService from '../../services/listingService'
 
 //types
-import {Listing} from '../../types/models'
+import {Listing, User} from '../../types/models'
 
 interface CategoryPageProps {
-  category: string
+  category: string;
+  user: User | null;
 }
 
 const CategoryPage = (props: CategoryPageProps): JSX.Element => {
   const [listings, setListings] = useState<Listing[]>([])
-  const { category } = props
+  const { category, user } = props
   console.log(category)
 
 
@@ -41,7 +42,7 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
       <h1>this is a category page for {category}</h1>
       <Filter />
       {listings.length > 0 ?
-        <ListingCardContainer listings={listings}/>
+        <ListingCardContainer listings={listings} user={user}/>
       :
       <>
         <h1>No {category} Listings</h1>
