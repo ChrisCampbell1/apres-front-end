@@ -23,7 +23,11 @@ export interface Listing {
 export interface Profile {
   name: string;
   photo?: string;
+  email: string;
   id: number;
+  about: string;
+  city: string;
+  state: string;
   createdAt: string;
   updatedAt: string;
 }
