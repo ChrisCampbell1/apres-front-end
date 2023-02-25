@@ -9,7 +9,6 @@ import Filter from '../../components/Filter/Filter'
 import ListingCardContainer from '../../components/ListingCardContainer/ListingCardContainer'
 
 // services
-
 import * as listingService from '../../services/listingService'
 
 //types

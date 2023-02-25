@@ -1,3 +1,6 @@
+// npm modules
+import { Link } from 'react-router-dom'
+
 // assets and stylesheets
 import styles from './ListingCard.module.css'
 
@@ -14,6 +17,7 @@ const ListingCard = (props: ListingCardProps): JSX.Element => {
   return (  
     <div className={styles.container}>
       this is a ListingCard for {listing.title}
+      <Link to={`/listings/${listing.id}`}>View Listing</Link>
     </div>
   )
 }

@@ -10,7 +10,15 @@ async function getListings(category: string): Promise<Listing[]> {
   } catch (error) {
     throw error
   }
-  
+}
+
+async function getListing(id: string | undefined): Promise<Listing> {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`)
+    return await res.json() as Listing
+  } catch (error) {
+    throw error
+  }
 }
 
 
@@ -19,6 +27,4 @@ async function getListings(category: string): Promise<Listing[]> {
 
 
 
-
-
-export { getListings }
+export { getListings, getListing }

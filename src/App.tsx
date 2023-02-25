@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
+import ProductDetail from './pages/ProductDetail/ProductDetail'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -52,6 +53,7 @@ function App(): JSX.Element {
         <Route path="/snowboards" element={<CategoryPage category="Snowboards"/>} />
         <Route path="/snowboard-boots" element={<CategoryPage category="Snowboard-Boots"/>} />
         <Route path="/other" element={<CategoryPage category="Other"/>} />
+        <Route path="/listings/:id" element={<ProductDetail />}/>
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
