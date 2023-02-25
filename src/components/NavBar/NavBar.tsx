@@ -23,6 +23,15 @@ const NavBar = (props: NavBarProps): JSX.Element => {
         </ul>
       :
         <ul>
+          <li><NavLink to="/all">All Listings</NavLink></li>
+          <li><NavLink to="/skis">Skis</NavLink></li>
+          <li><NavLink to="/ski-boots">Ski Boots</NavLink></li>
+          <li><NavLink to="/poles">Poles</NavLink></li>
+          <li><NavLink to="/accessories">Accessories</NavLink></li>
+          <li><NavLink to="/clothing">Clothing</NavLink></li>
+          <li><NavLink to="/snowboards">Snowboards</NavLink></li>
+          <li><NavLink to="/snowboard-boots">Snowboard Boots</NavLink></li>
+          <li><NavLink to="/other">Other</NavLink></li>
           <li><NavLink to="/login">Log In</NavLink></li>
           <li><NavLink to="/signup">Sign Up</NavLink></li>
         </ul>
