@@ -44,6 +44,7 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route path="/skis" element={<CategoryPage category="Skis"/>} />
+        <Route path="/ski-boots" element={<CategoryPage category="Ski-Boots"/>} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

@@ -35,7 +35,7 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
       }
     }
     fetchListings()
-  }, [])
+  }, [category])
 
   return (  
     <div className={styles.container}>
