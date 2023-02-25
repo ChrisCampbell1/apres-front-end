@@ -1,6 +1,19 @@
 /* ---------==== custom forms ====--------- */
+export interface NewListingFormData {
+  title: string;
+  description: string;
+  category: string;
+  condition?: number;
+  manufacturer?: string;
+  yearManufactured?: string;
+  dimensions?: string;
+  material?: string;
+  price: number;
+}
 
-
+export interface ListingPhotoFormData {
+  image: File | null;
+}
 
 /* ---------===== auth forms =====--------- */
 

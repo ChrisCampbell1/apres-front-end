@@ -11,6 +11,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
 import Confirmation from './pages/Confirmation/Confirmation'
+import NewListing from './pages/NewListing/NewListing'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -69,6 +70,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <Profiles />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/listings/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewListing user={user}/>
             </ProtectedRoute>
           }
         />
