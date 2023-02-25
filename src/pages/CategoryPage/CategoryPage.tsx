@@ -39,9 +39,16 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
 
   return (  
     <div className={styles.container}>
-      <h1>this is a category page</h1>
+      <h1>this is a category page for {category}</h1>
       <Filter />
-      <ListingCardContainer listings={listings}/>
+      {listings.length > 0 ?
+        <ListingCardContainer listings={listings}/>
+      :
+      <>
+        <h1>No {category} Listings</h1>
+        <h3>Please check back later!</h3>
+      </>
+    }
     </div>
   )
 }

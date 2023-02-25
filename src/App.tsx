@@ -43,8 +43,15 @@ function App(): JSX.Element {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
+        <Route path="/all" element={<CategoryPage category=""/>} />
         <Route path="/skis" element={<CategoryPage category="Skis"/>} />
         <Route path="/ski-boots" element={<CategoryPage category="Ski-Boots"/>} />
+        <Route path="/poles" element={<CategoryPage category="Poles"/>} />
+        <Route path="/accessories" element={<CategoryPage category="Accessories"/>} />
+        <Route path="/clothing" element={<CategoryPage category="Clothing"/>} />
+        <Route path="/snowboards" element={<CategoryPage category="Snowboards"/>} />
+        <Route path="/snowboard-boots" element={<CategoryPage category="Snowboard-Boots"/>} />
+        <Route path="/other" element={<CategoryPage category="Other"/>} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
