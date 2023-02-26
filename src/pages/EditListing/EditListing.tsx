@@ -25,6 +25,7 @@ const EditListing = (props: EditListingProps): JSX.Element => {
   const [form, setForm] = useState<EditListingFormData>({
     title: listing.title,
     description: listing.description,
+    status: listing.status,
     category: listing.category,
     condition: listing.condition,
     manufacturer: listing.manufacturer,
@@ -191,6 +192,20 @@ const EditListing = (props: EditListingProps): JSX.Element => {
             onChange={handleChange}
             value={form.price}
           />
+        </div>
+        <div  className={styles.inputContainer}>
+          <label htmlFor="status-input">Status</label>
+          <select 
+            name="status" 
+            id="status-input"
+            required
+            onChange={handleChange}
+            value={form.status}
+          >
+            <option value="For Sale">For Sale</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Sold">Sold</option>
+          </select>
         </div>
         <button onClick={handleSubmit}>Submit</button>
       </form>

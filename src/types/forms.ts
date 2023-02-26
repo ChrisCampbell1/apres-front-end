@@ -14,6 +14,7 @@ export interface NewListingFormData {
 export interface EditListingFormData {
   title: string;
   description: string;
+  status: string;
   category: string;
   condition?: number;
   manufacturer?: string;
