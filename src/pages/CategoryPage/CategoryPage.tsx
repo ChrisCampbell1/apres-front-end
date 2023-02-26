@@ -22,7 +22,8 @@ interface CategoryPageProps {
 const CategoryPage = (props: CategoryPageProps): JSX.Element => {
   const [listings, setListings] = useState<Listing[]>([])
   const { category, user } = props
-  
+
+
   useEffect(():void =>{
     async function fetchListings(): Promise<void> {
       try {
@@ -35,11 +36,31 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
     fetchListings()
   }, [category])
 
+  function findMax(listings: Listing[]): number {
+    let max = 0
+    listings.forEach((listing) => {
+      if (listing?.price > max) max = listing.price
+    })
+    return max
+  }
+
+  const maxPrice = findMax(listings)
+
+  function findMin(listings: Listing[]): number {
+    let min = maxPrice
+    listings.forEach((listing) => {
+      if (listing?.price < min) min = listing.price
+    })
+    return min
+  }
+
+  const minPrice = findMin(listings)
+
   return (  
     <div className={styles.container}>
       <h1>{category} Listings</h1>
       <div className={styles.listings}>
-        <Filter />
+        <Filter minPrice={minPrice} maxPrice={maxPrice}/>
         {listings.length > 0 ?
           <ListingCardContainer listings={listings} user={user}/>
         :

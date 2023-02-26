@@ -15,7 +15,6 @@ interface ListingCardContainerProps {
 const ListingCardContainer = (props: ListingCardContainerProps): JSX.Element => {
   const { listings, user } = props
 
-
   return (  
     <div className={styles.container}>
       {listings.map((listing) =>

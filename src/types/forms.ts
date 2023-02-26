@@ -11,6 +11,10 @@ export interface NewListingFormData {
   price: number;
 }
 
+export interface FilterData {
+  price?: number;
+}
+
 export interface EditListingFormData {
   title: string;
   description: string;
