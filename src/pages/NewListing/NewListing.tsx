@@ -22,7 +22,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
   const [form, setForm] = useState<NewListingFormData>({
     title: '',
     description: '',
-    category: '',
+    category: 'Skis',
     condition: 3,
     manufacturer: '',
     yearManufactured: '',
@@ -44,10 +44,10 @@ const NewListing = (props: NewListingProps): JSX.Element => {
   const handleSubmit = async (evt: React.FormEvent) => {
     evt.preventDefault()
     const newListing = await listingService.create(form)
-    if (photoData !== null) {
-      await listingService.addPhoto(photoData, newListing.id)
-    }
-    navigate('/')
+    // if (photoData !== null) {
+    //   await listingService.addPhoto(photoData, newListing.id)
+    // }
+    navigate(`/`)
   }
 
   return (  
@@ -178,6 +178,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             onChange={handleChange}
           />
         </div>
+        <button onClick={handleSubmit}>Submit</button>
       </form>
     </div>
   )

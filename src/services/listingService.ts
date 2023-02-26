@@ -40,8 +40,11 @@ async function purchaseListing(id: number | undefined): Promise<Listing> {
 async function create (formData: NewListingFormData): Promise<Listing> {
   try {
     const res = await fetch(`${BASE_URL}`, {
-      method: 'PUT',
-      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
       body: JSON.stringify(formData)
     })
     return await res.json() as Listing
