@@ -22,9 +22,7 @@ interface CategoryPageProps {
 const CategoryPage = (props: CategoryPageProps): JSX.Element => {
   const [listings, setListings] = useState<Listing[]>([])
   const { category, user } = props
-  console.log(category)
-
-
+  
   useEffect(():void =>{
     async function fetchListings(): Promise<void> {
       try {

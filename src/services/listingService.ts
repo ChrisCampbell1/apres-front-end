@@ -16,6 +16,17 @@ async function getListings(category: string): Promise<Listing[]> {
   }
 }
 
+async function getUserListings(userId: number): Promise<Listing[]> {
+  try {
+    const res = await fetch(`${BASE_URL}/profile/${userId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+    return await res.json() as Listing[]
+  } catch (error) {
+    throw error
+  }
+}
+
 async function getListing(id: string | undefined): Promise<Listing> {
   try {
     const res = await fetch(`${BASE_URL}/${id}`)
@@ -103,4 +114,4 @@ async function deleteListing(id: number): Promise<Listing> {
   }
 }
 
-export { getListings, getListing, purchaseListing, createListing, addPhoto, editListing, deleteListing }
+export { getListings, getListing, purchaseListing, createListing, addPhoto, editListing, deleteListing, getUserListings }

@@ -1,15 +1,18 @@
 // npm modules
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router'
+import { useState, useEffect } from 'react'
 
 // assets and stylesheets
 import styles from './ProfileDetails.module.css'
 
 // components
 import ListingCardContainer from '../../components/ListingCardContainer/ListingCardContainer'
-import ListingCard from '../../components/ListingCard/ListingCard';
+
+// services
+import * as listingService from '../../services/listingService'
 
 // types
-import { Profile, User } from '../../types/models'
+import { Profile, User, Listing } from '../../types/models'
 
 interface ProfileDetailsProps {
   user: User | null;
@@ -17,6 +20,21 @@ interface ProfileDetailsProps {
 
 const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
   const location = useLocation()
+  const [listings, setListings] = useState<Listing[]>([])
+  const { user } = props
+
+  useEffect(():void =>{
+    async function fetchListings(): Promise<void> {
+      try {
+        const listingData = await listingService.getUserListings(location.state.id)
+        setListings(listingData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchListings()
+  }, [location])
+
   return (  
     <div className={styles.container}>
       <h1>Profile Details Page</h1>
@@ -24,7 +42,7 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
       <p>Location: {location.state.city}, {location.state.state}</p>
       <p>{location.state.about}</p>
       <h3>Listings</h3>
-      <p>listing cards container goes here</p>
+      <ListingCardContainer listings={listings} user={user}/>
     </div>
   )
 }
