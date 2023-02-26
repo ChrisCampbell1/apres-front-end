@@ -10,10 +10,12 @@ import { FilterData } from '../../types/forms';
 interface FilterProps {
   minPrice: number;
   maxPrice: number;
+  handleFilterClick: (price: number | null, recencey: string | null, condition: number | null, state: string | null) => void;
+  handleFilterResetClick: () => void;
 }
 
 const Filter = (props: FilterProps): JSX.Element => {
-  const {minPrice, maxPrice} = props
+  const {minPrice, maxPrice, handleFilterClick, handleFilterResetClick} = props
 
   const [priceFilter, setPriceFilter] = useState<number | null>(null)
   const [recencyFilter, setRecencyFilter] = useState<string | null>(null)
@@ -50,7 +52,7 @@ const Filter = (props: FilterProps): JSX.Element => {
         onChange={handlePriceChange}
       />
       <p>Max Price: {priceFilter}</p>
-      <label htmlFor="recency">Newest Listings</label>
+      {/* <label htmlFor="recency">Newest Listings</label>
       <select
         name="recency"
         id="recency"
@@ -59,7 +61,7 @@ const Filter = (props: FilterProps): JSX.Element => {
         <option value=""></option>
         <option value="first">First</option>
         <option value="last">Last</option>
-      </select>
+      </select> */}
       <label htmlFor="condition">Minimum Condition</label>
       <select
         name="condition"
@@ -132,6 +134,8 @@ const Filter = (props: FilterProps): JSX.Element => {
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
       </select>
+      <button onClick={() => handleFilterClick(priceFilter, recencyFilter, conditionFilter, stateFilter)}>Filter Listigns</button>
+      <button onClick={() => handleFilterResetClick()}>Reset Filters</button>
     </div>
   )
 }

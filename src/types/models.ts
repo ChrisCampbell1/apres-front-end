@@ -17,6 +17,8 @@ export interface Listing {
   price: number;
   seller: Profile;
   buyer: Profile;
+  createdAt: string;
+  updatedAt: string;
 }
 
 

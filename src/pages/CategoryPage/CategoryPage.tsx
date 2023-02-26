@@ -36,6 +36,38 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
     fetchListings()
   }, [category])
 
+  function handleFilterClick(price: number | null, recencey: string | null, condition: number | null, state: string | null): void {
+    if (price !==  null) {
+      const result = listings.filter(listing => listing.price <= price)
+      setListings(result)
+    }
+    if (condition !== null) {
+      const result = listings.filter(listing => listing.condition >= condition)
+      setListings(result)
+    }
+    if (state !== null) {
+      const result = listings.filter(listing => listing.seller.state === state)
+      setListings(result)
+    }
+    // if (recencey !== null) {
+    //   if (recencey === "first") {
+    //     listings.sort((a, b): Listing[] => {a.createdAt - b.createdAt})
+    //   }
+    // }
+  }
+
+  function handleFilterResetClick(): void {
+    async function fetchListings(): Promise<void> {
+      try {
+        const listingData = await listingService.getListings(category)
+        setListings(listingData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchListings()
+  }
+
   function findMax(listings: Listing[]): number {
     let max = 0
     listings.forEach((listing) => {
@@ -60,7 +92,7 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
     <div className={styles.container}>
       <h1>{category} Listings</h1>
       <div className={styles.listings}>
-        <Filter minPrice={minPrice} maxPrice={maxPrice}/>
+        <Filter minPrice={minPrice} maxPrice={maxPrice} handleFilterClick={handleFilterClick} handleFilterResetClick={handleFilterResetClick}/>
         {listings.length > 0 ?
           <ListingCardContainer listings={listings} user={user}/>
         :
