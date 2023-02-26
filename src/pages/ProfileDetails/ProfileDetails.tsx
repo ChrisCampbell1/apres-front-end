@@ -1,6 +1,7 @@
 // npm modules
 import { useLocation } from 'react-router'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 // assets and stylesheets
 import styles from './ProfileDetails.module.css'
@@ -39,6 +40,12 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
     <div className={styles.container}>
       <h1>Profile Details Page</h1>
       <img src={location.state.photo} alt="user avatar" />
+      {(user?.profile.id === location.state.id)
+        ?
+        <Link to={`/`}>Edit Profile</Link>
+        :
+        <></>
+      }
       <p>Location: {location.state.city}, {location.state.state}</p>
       <p>{location.state.about}</p>
       <h3>Listings</h3>

@@ -40,6 +40,9 @@ export interface SignupFormData {
   email: string;
   password: string;
   passwordConf: string;
+  city?: string;
+  state?: string;
+  about?: string;
 }
 
 export interface ChangePasswordFormData {
