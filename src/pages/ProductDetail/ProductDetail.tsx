@@ -46,7 +46,7 @@ const ProductDetail = (): JSX.Element => {
     <div className={styles.container}>
       <p>this is a ProductDetail Page for {listing?.title}</p>
       <p>{listing?.description}</p>
-      <img src={listing?.image} alt={`a ${listing?.category}`} />
+      <img src={listing?.image} alt={`${listing?.category}`} />
       <p>${listing?.price}</p>
       <p>{listing?.status}</p>
       <p>{listing?.dimensions}</p>

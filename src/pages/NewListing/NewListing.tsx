@@ -44,10 +44,12 @@ const NewListing = (props: NewListingProps): JSX.Element => {
   const handleSubmit = async (evt: React.FormEvent) => {
     evt.preventDefault()
     const newListing = await listingService.create(form)
-    // if (photoData !== null) {
-    //   await listingService.addPhoto(photoData, newListing.id)
-    // }
-    navigate(`/`)
+    if (photoData !== null) {
+      await listingService.addPhoto(photoData, newListing.id)
+    }
+    navigate(`/listings/${newListing.id}`, {
+      state: props.user
+    })
   }
 
   return (  
