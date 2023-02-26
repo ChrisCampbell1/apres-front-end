@@ -38,7 +38,7 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
 
   return (  
     <div className={styles.container}>
-      <h1>Profile Details Page</h1>
+      <h1>{location.state.name}</h1>
       <img src={location.state.photo} alt="user avatar" />
       {(user?.profile.id === location.state.id)
         ?
@@ -50,7 +50,11 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
       <p>Location: {location.state.city}, {location.state.state}</p>
       <p>{location.state.about}</p>
       <h3>Listings</h3>
-      <ListingCardContainer listings={listings} user={user}/>
+      {listings.length > 0 ?
+        <ListingCardContainer listings={listings} user={user}/>
+      :
+        <h4>{location.state.name} doesn't have any listings yet</h4>
+      }
     </div>
   )
 }
