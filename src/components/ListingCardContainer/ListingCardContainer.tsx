@@ -18,7 +18,6 @@ const ListingCardContainer = (props: ListingCardContainerProps): JSX.Element => 
 
   return (  
     <div className={styles.container}>
-      this is a ListingCardContainer
       {listings.map((listing) =>
       <ListingCard key={listing.id} listing={listing} user={user}/>
       )}

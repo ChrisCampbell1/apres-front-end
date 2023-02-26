@@ -15,6 +15,8 @@ export interface Listing {
   dimensions: string;
   material: string;
   price: number;
+  seller: Profile;
+  buyer: Profile;
 }
 
 

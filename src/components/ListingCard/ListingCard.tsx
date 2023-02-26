@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 // assets and stylesheets
 import styles from './ListingCard.module.css'
+import snowflake from '/assets/snowflake.svg'
 
 //types
 import {Listing, User} from '../../types/models'
@@ -15,9 +16,26 @@ interface ListingCardProps {
 const ListingCard = (props: ListingCardProps): JSX.Element => {
   const { listing, user } = props
 
+  const arr: number[] = [1, 2, 3, 4, 5]
+
   return (  
     <div className={styles.container}>
-      this is a ListingCard for {listing.title}
+      <img src={listing.image} alt="product image" />
+      <p id={styles.title}>{listing.title}</p>
+      <p>${listing.price}</p>
+      <p>Location: {listing?.seller.city}, {listing.seller.state}</p>
+      <p>Condition: {arr.map((el: number): JSX.Element => (
+        el <= listing.condition ?
+        <img
+          id={styles.snowflake}
+          key={el}
+          src={snowflake} 
+          alt="Snowflake Symbol"
+        />
+        :
+        <></>
+        ))}
+      </p>
       <Link to={`/listings/${listing.id}`} state={{user}}>View Listing</Link>
     </div>
   )
