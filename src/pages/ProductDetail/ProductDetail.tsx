@@ -61,10 +61,13 @@ const ProductDetail = (): JSX.Element => {
       <p>{listing?.status}</p>
       <p>{listing?.dimensions}</p>
       {(profileId !== undefined && listing?.status === "For Sale") 
-      ?
-      <button onClick={() => handlePurchaseClick()}>Purchase</button>
-      :
-      <p>Please log in to make a purchase</p>
+        ?
+        <button onClick={() => handlePurchaseClick()}>Purchase</button>
+        :
+        (listing?.status === "For Sale") ?
+          <p>Please log in to make a purchase</p>
+          :
+          <></>
       }
       {(profileId === listing?.sellerId)
       ?
