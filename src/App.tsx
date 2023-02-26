@@ -84,6 +84,14 @@ function App(): JSX.Element {
           }
         />
         <Route
+          path="/profiles/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileDetails user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/listings/new"
           element={
             <ProtectedRoute user={user}>

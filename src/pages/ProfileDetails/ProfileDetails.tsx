@@ -42,7 +42,8 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
       <img src={location.state.photo} alt="user avatar" />
       {(user?.profile.id === location.state.id)
         ?
-        <Link to={`/`}>Edit Profile</Link>
+        // <Link to={`/`}>Edit Profile</Link> for icebox feature
+        <></>
         :
         <></>
       }
