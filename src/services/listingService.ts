@@ -3,7 +3,7 @@ import * as tokenService from './tokenService'
 
 // types
 import { Listing } from '../types/models'
-import { NewListingFormData, ListingPhotoFormData } from '../types/forms'
+import { NewListingFormData, EditListingFormData } from '../types/forms'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/listings`
 
@@ -37,7 +37,7 @@ async function purchaseListing(id: number | undefined): Promise<Listing> {
   }
 }
 
-async function create (formData: NewListingFormData): Promise<Listing> {
+async function createListing (formData: NewListingFormData): Promise<Listing> {
   try {
     const res = await fetch(`${BASE_URL}`, {
       method: 'POST',
@@ -73,5 +73,21 @@ async function addPhoto(
   }
 }
 
+async function editListing(formData: EditListingFormData, id: number): Promise<Listing> {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'PUT',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(formData)
+    })
+    return await res.json() as Listing
+  } catch (error) {
+    throw error
+  }
+}
 
-export { getListings, getListing, purchaseListing, create, addPhoto }
+
+export { getListings, getListing, purchaseListing, createListing, addPhoto, editListing }

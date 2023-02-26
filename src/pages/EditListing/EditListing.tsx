@@ -1,35 +1,37 @@
 // npm modules
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 // assets and stylesheets
-import styles from './NewListing.module.css'
+import styles from './EditListing.module.css'
 
 // services
 import * as listingService from '../../services/listingService'
 
 // types
 import {Listing, User} from '../../types/models'
-import { NewListingFormData } from '../../types/forms'
+import { EditListingFormData } from '../../types/forms'
 
-interface NewListingProps {
+interface EditListingProps {
   user: User | null;
 }
 
-const NewListing = (props: NewListingProps): JSX.Element => {
+const EditListing = (props: EditListingProps): JSX.Element => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const listing: Listing = location.state
   const { user } = props
   
-  const [form, setForm] = useState<NewListingFormData>({
-    title: '',
-    description: '',
-    category: 'Skis',
-    condition: 3,
-    manufacturer: '',
-    yearManufactured: '',
-    dimensions: '',
-    material: '',
-    price: 1,
+  const [form, setForm] = useState<EditListingFormData>({
+    title: listing.title,
+    description: listing.description,
+    category: listing.category,
+    condition: listing.condition,
+    manufacturer: listing.manufacturer,
+    yearManufactured: listing.yearManufactured.toString(),
+    dimensions: listing.dimensions,
+    material: listing.material,
+    price: listing.price,
   })
 
   const [photoData, setPhotoData] = useState<File | null>(null)
@@ -44,11 +46,11 @@ const NewListing = (props: NewListingProps): JSX.Element => {
 
   const handleSubmit = async (evt: React.FormEvent) => {
     evt.preventDefault()
-    const newListing = await listingService.createListing(form)
+    const newListing = await listingService.editListing(form, listing?.id)
     if (photoData !== null) {
-      await listingService.addPhoto(photoData, newListing.id)
+      await listingService.addPhoto(photoData, listing.id)
     }
-    navigate(`/listings/${newListing.id}`, {
+    navigate(`/listings/${listing.id}`, {
       state: {user}
     })
   }
@@ -66,6 +68,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id='title-input'
             placeholder='What are you selling?'
             onChange={handleChange}
+            value={form.title}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -88,6 +91,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id="category-input"
             required
             onChange={handleChange}
+            value={form.category}
           >
             <option value="Skis">Skis</option>
             <option value="Ski Boots">Ski Boots</option>
@@ -106,6 +110,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id="condition-input"
             required
             onChange={handleChange}
+            value={form.condition}
           >
             <option value="1">1</option>
             <option value="2">2</option>
@@ -124,6 +129,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id='description-input'
             placeholder=''
             onChange={handleChange}
+            value={form.description}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -135,6 +141,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id='manufacturer-input'
             placeholder='manufacturer'
             onChange={handleChange}
+            value={form.manufacturer}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -146,6 +153,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id='year-input'
             placeholder='year'
             onChange={handleChange}
+            value={form.yearManufactured}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -157,6 +165,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id='dimensions-input'
             placeholder='dimensions or clothing size'
             onChange={handleChange}
+            value={form.dimensions}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -168,6 +177,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id='material-input'
             placeholder='material(s)'
             onChange={handleChange}
+            value={form.material}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -179,6 +189,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             id='price-input'
             placeholder='Price in USD'
             onChange={handleChange}
+            value={form.price}
           />
         </div>
         <button onClick={handleSubmit}>Submit</button>
@@ -187,4 +198,4 @@ const NewListing = (props: NewListingProps): JSX.Element => {
   )
 }
 
-export default NewListing;
+export default EditListing;

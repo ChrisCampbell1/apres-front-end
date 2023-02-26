@@ -12,6 +12,7 @@ import CategoryPage from './pages/CategoryPage/CategoryPage'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
 import Confirmation from './pages/Confirmation/Confirmation'
 import NewListing from './pages/NewListing/NewListing'
+import EditListing from './pages/EditListing/EditListing'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -78,6 +79,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <NewListing user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/listings/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditListing user={user}/>
             </ProtectedRoute>
           }
         />

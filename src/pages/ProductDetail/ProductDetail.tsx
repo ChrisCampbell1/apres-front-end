@@ -1,5 +1,5 @@
 // npm modules
-import { useParams, useLocation, useNavigate } from 'react-router'
+import { useParams, useLocation, useNavigate, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 // assets and stylesheets
@@ -15,6 +15,7 @@ const ProductDetail = (): JSX.Element => {
   const navigate = useNavigate()
   const params = useParams()
   const location = useLocation()
+  console.log(location)
   const profileId = location.state.user?.profile.id
   const { id } = params
   const [listing, setListing] = useState<Listing>()
@@ -55,6 +56,15 @@ const ProductDetail = (): JSX.Element => {
       <button onClick={() => handlePurchaseClick()}>Purchase</button>
       :
       <p>Please log in to make a purchase</p>
+      }
+      {(profileId === listing?.sellerId)
+      ?
+      <div>
+        <Link to={`/listings/${listing?.id}/edit`} state={listing}>Edit Listing</Link>
+        <Link to={'/'}>Delete Listing Listing</Link>        
+      </div>
+      :
+      <></>
       }
     </div>
   )
