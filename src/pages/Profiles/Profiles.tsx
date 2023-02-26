@@ -1,5 +1,9 @@
 // npm packages
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+
+// assets and stylesheets
+import styles from './Profiles.module.css'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -28,10 +32,14 @@ const Profiles = (): JSX.Element => {
     <>
       <h1>Hello. This is a list of all the profiles.</h1>
       {profiles.map((profile: Profile) =>
-        <p key={profile.id}>{profile.name}</p>
+        // <p key={profile.id}>{profile.name}</p>
+        <div key={profile.id} className={styles.profileCard}>
+          <img src={profile.photo} alt="user avatar" />
+          <Link to={`/profiles/${profile.id}`} state={profile}>{profile.name}</Link>
+        </div>
       )}
     </>
   )
 }
- 
+
 export default Profiles

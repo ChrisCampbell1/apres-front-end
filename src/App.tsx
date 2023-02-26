@@ -13,6 +13,7 @@ import ProductDetail from './pages/ProductDetail/ProductDetail'
 import Confirmation from './pages/Confirmation/Confirmation'
 import NewListing from './pages/NewListing/NewListing'
 import EditListing from './pages/EditListing/EditListing'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -71,6 +72,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <Profiles />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profiles/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileDetails user={user} />
             </ProtectedRoute>
           }
         />
