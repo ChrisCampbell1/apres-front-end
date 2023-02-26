@@ -7,19 +7,21 @@
 }
 
 .container:hover {
-  border: 1px solid darkgray;
+  background-color: aliceblue;
 }
 
 .container p {
   margin-top: 0;
   margin-bottom: .25rem;
   color: #464646;
+  text-decoration: none;
 }
 
 #title {
   font-weight: bold;
   margin-bottom: .5rem;
   color: black;
+  text-decoration: none;
 }
 
 .container img {

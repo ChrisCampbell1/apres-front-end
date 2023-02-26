@@ -19,25 +19,26 @@ const ListingCard = (props: ListingCardProps): JSX.Element => {
   const arr: number[] = [1, 2, 3, 4, 5]
 
   return (  
-    <div className={styles.container}>
-      <img src={listing.image} alt="product image" />
-      <p id={styles.title}>{listing.title}</p>
-      <p>${listing.price}</p>
-      <p>Location: {listing?.seller.city}, {listing.seller.state}</p>
-      <p>Condition: {arr.map((el: number): JSX.Element => (
-        el <= listing.condition ?
-        <img
-          id={styles.snowflake}
-          key={el}
-          src={snowflake} 
-          alt="Snowflake Symbol"
-        />
-        :
-        <></>
-        ))}
-      </p>
-      <Link to={`/listings/${listing.id}`} state={{user}}>View Listing</Link>
-    </div>
+    <Link to={`/listings/${listing.id}`} state={{user}}>
+      <div className={styles.container}>
+        <img src={listing.image} alt="product image" />
+        <p id={styles.title}>{listing.title}</p>
+        <p>${listing.price}</p>
+        <p>Location: {listing?.seller.city}, {listing.seller.state}</p>
+        <p>Condition: {arr.map((el: number): JSX.Element => (
+          el <= listing.condition ?
+          <img
+            id={styles.snowflake}
+            key={el}
+            src={snowflake} 
+            alt="Snowflake Symbol"
+          />
+          :
+          <></>
+          ))}
+        </p>
+      </div>
+    </Link>
   )
 }
 

@@ -26,19 +26,28 @@ const Profiles = (): JSX.Element => {
     fetchProfiles()
   }, [])
 
-  if(!profiles.length) return <p>No profiles yet</p>
+  if(!profiles.length) return <p>Loading Profiles</p>
 
   return (
-    <>
-      <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map((profile: Profile) =>
-        // <p key={profile.id}>{profile.name}</p>
-        <div key={profile.id} className={styles.profileCard}>
-          <img src={profile.photo} alt="user avatar" />
-          <Link to={`/profiles/${profile.id}`} state={profile}>{profile.name}</Link>
-        </div>
-      )}
-    </>
+    <div>
+      <h1>User Directory</h1>
+      <div className={styles.container}>
+        {profiles.map((profile: Profile) =>
+          // <p key={profile.id}>{profile.name}</p>
+          <Link to={`/profiles/${profile.id}`} state={profile} key={profile.id}>
+            <div key={profile.id} className={styles.profileCard}>
+              <img src={profile.photo} alt="user avatar" />
+              <p id={styles.name}>{profile.name}</p>
+              <div className={styles.about}>
+                <p>Location: {profile.city}, {profile.state}</p>
+                <p>Member Since: {profile.createdAt.slice(0,10)}</p>
+                <p>Listings: {profile.listings.length}</p>
+              </div>
+            </div>
+          </Link>
+        )}
+      </div>
+    </div>
   )
 }
 

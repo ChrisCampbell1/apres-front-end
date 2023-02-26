@@ -34,6 +34,7 @@ export interface Profile {
   state: string;
   createdAt: string;
   updatedAt: string;
+  listings: Listing[];
 }
 
 export interface User {
