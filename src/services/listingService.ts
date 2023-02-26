@@ -89,5 +89,18 @@ async function editListing(formData: EditListingFormData, id: number): Promise<L
   }
 }
 
+async function deleteListing(id: number): Promise<Listing> {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE',
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+    })
+    return await res.json() as Listing
+  } catch (error) {
+    throw error
+  }
+}
 
-export { getListings, getListing, purchaseListing, createListing, addPhoto, editListing }
+export { getListings, getListing, purchaseListing, createListing, addPhoto, editListing, deleteListing }

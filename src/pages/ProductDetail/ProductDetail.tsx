@@ -31,6 +31,15 @@ const ProductDetail = (): JSX.Element => {
     }
   }
 
+  async function handleDelete(): Promise<void> {
+    try {
+      if (listing?.id) await listingService.deleteListing(listing?.id)
+      navigate('/all')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(():void =>{
     async function fetchListing(): Promise<void> {
       try {
@@ -61,7 +70,7 @@ const ProductDetail = (): JSX.Element => {
       ?
       <div>
         <Link to={`/listings/${listing?.id}/edit`} state={listing}>Edit Listing</Link>
-        <Link to={'/'}>Delete Listing Listing</Link>        
+        <button onClick={() => handleDelete()}>Delete Listing</button>        
       </div>
       :
       <></>
