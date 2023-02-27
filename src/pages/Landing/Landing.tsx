@@ -30,7 +30,7 @@ const Landing = (props: LandingProps): JSX.Element => {
         <article>
           Looking to buy used ski or snowboard equipment? You're at the right place. Browse hundreds of local listings to find the best deals on the gear you need.
           <div className='buttons'>
-            <Link to={'/'}>Shop Now</Link>
+            <Link to={'/all'}>Shop Now</Link>
           </div>
         </article>
       <article>

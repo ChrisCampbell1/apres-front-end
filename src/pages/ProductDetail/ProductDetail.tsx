@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 // assets and stylesheets
 import styles from './ProductDetail.module.css'
+import snowflake from '/assets/snowflake-black.svg'
 
 // services
 import * as listingService from '../../services/listingService'
@@ -19,6 +20,7 @@ const ProductDetail = (): JSX.Element => {
   const profileId = location.state.user?.profile.id
   const { id } = params
   const [listing, setListing] = useState<Listing>()
+  const arr: number[] = [1, 2, 3, 4, 5]
 
   async function handlePurchaseClick(): Promise<void> {
     try {
@@ -54,30 +56,53 @@ const ProductDetail = (): JSX.Element => {
 
   return (  
     <div className={styles.container}>
-      <p>this is a ProductDetail Page for {listing?.title}</p>
-      <p>{listing?.description}</p>
-      <img src={listing?.image} alt={`${listing?.category}`} />
-      <p>${listing?.price}</p>
-      <p>{listing?.status}</p>
-      <p>{listing?.dimensions}</p>
-      {(profileId !== undefined && listing?.status === "For Sale") 
-        ?
-        <button onClick={() => handlePurchaseClick()}>Purchase</button>
-        :
-        (listing?.status === "For Sale") ?
-          <p>Please log in to make a purchase</p>
+      <div className={styles.sideBySide}>
+        <div>
+          <img src={listing?.image} alt={`${listing?.category}`} />
+        </div>
+        <div>
+          <h1>{listing?.title}</h1>
+          <p>{listing?.status}</p>
+          <p><span>Listed by: </span><Link to={`/profiles/${listing?.sellerId}`} id={styles.sellerLink}>{listing?.seller.name}</Link> on {listing?.createdAt.slice(0,10)}</p>
+          <p><span>Description:</span></p>
+          <p>{listing?.description}</p>
+          <p><span>Price: </span>${listing?.price}</p>
+          <p><span>Condition: </span>{arr.map((el: number): JSX.Element => (
+          el <= listing?.condition ?
+          <img
+            id={styles.snowflake}
+            key={el}
+            src={snowflake} 
+            alt="Snowflake Symbol"
+          />
           :
           <></>
-      }
-      {(profileId === listing?.sellerId)
-      ?
-      <div>
-        <Link to={`/listings/${listing?.id}/edit`} state={listing}>Edit Listing</Link>
-        <button onClick={() => handleDelete()}>Delete Listing</button>        
+          ))}
+        </p>
+          <p><span>Manufacturer: </span>{listing?.manufacturer}</p>
+          <p><span>Year Manufactured: </span>{listing?.yearManufactured}</p>
+          <p><span>Dimensions: </span>{listing?.dimensions}</p>
+          <p><span>Material: </span>{listing?.material}</p>
+          {(profileId !== undefined && listing?.status === "For Sale" && profileId !== listing?.sellerId) 
+            ?
+            <button onClick={() => handlePurchaseClick()} id={styles.purchase}>Purchase</button>
+            :
+            (listing?.status === "For Sale" && profileId !== listing?.sellerId) ?
+              <p>Please log in to make a purchase</p>
+              :
+              <></>
+          }
+          {(profileId === listing?.sellerId)
+          ?
+          <div className={styles.buttons}>
+            <Link to={`/listings/${listing?.id}/edit`} state={listing}>Edit Listing</Link>
+            <button onClick={() => handleDelete()} id={styles.delete}>Delete Listing</button>        
+          </div>
+          :
+          <></>
+          }
+        </div>
       </div>
-      :
-      <></>
-      }
     </div>
   )
 }

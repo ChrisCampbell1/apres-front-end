@@ -51,7 +51,7 @@ const Filter = (props: FilterProps): JSX.Element => {
         max={maxPrice}
         onChange={handlePriceChange}
       />
-      <p>Max Price: {priceFilter}</p>
+      <p>Max Price: ${priceFilter}</p>
       {/* <label htmlFor="recency">Newest Listings</label>
       <select
         name="recency"
@@ -62,7 +62,7 @@ const Filter = (props: FilterProps): JSX.Element => {
         <option value="first">First</option>
         <option value="last">Last</option>
       </select> */}
-      <label htmlFor="condition">Minimum Condition</label>
+      <label htmlFor="condition">Min Condition</label>
       <select
         name="condition"
         id="condition"

@@ -18,7 +18,9 @@ const NavBar = (props: NavBarProps): JSX.Element => {
   
   return (
     <nav className={styles.container}>
-      <img src={logo} alt="apres logo" />
+      <NavLink to="/">
+        <img src={logo} alt="apres logo" />
+      </NavLink>
       {user ?
         <ul>
           <li><NavLink to="/">Home</NavLink></li>

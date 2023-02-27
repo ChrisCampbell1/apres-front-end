@@ -90,16 +90,20 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
 
   return (  
     <div className={styles.container}>
-      <h1>{category} Listings</h1>
+      {category === '' ?
+      <h1>All Listings</h1>
+      :
+      <h1>{category.replace(/-/g,' ')}</h1>
+      }
       <div className={styles.listings}>
         <Filter minPrice={minPrice} maxPrice={maxPrice} handleFilterClick={handleFilterClick} handleFilterResetClick={handleFilterResetClick}/>
         {listings.length > 0 ?
           <ListingCardContainer listings={listings} user={user}/>
         :
-        <>
-          <h1>No {category} Listings</h1>
+        <div className={styles.empty}>
+          <h3>No Listings</h3>
           <h3>Please check back later!</h3>
-        </>
+        </div>
         }
       </div>
     </div>

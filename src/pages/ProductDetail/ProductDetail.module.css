@@ -1,0 +1,93 @@
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.sideBySide {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  justify-content: center;
+}
+
+.sideBySide h1 {
+  text-align: left;
+}
+
+.sideBySide div {
+  margin-right: 3rem;
+}
+
+h3 {
+  margin-left: 1rem;
+}
+
+.sideBySide h1 {
+  margin-top: 0;
+}
+
+.sideBySide img {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}
+
+span {
+  font-weight: bold;
+}
+
+.container p {
+  font-weight: 400;
+}
+
+#snowflake {
+  height: 1rem;
+  width: 1rem;
+  margin: 0;
+}
+
+.container .buttons a {
+  border: 1px solid black;
+  padding: .5rem;
+  margin-right: 1rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  width: 15rem;
+}
+
+.container a:hover {
+  background-color: black;
+  color: #FAF9F6;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container .buttons {
+  margin-top: 2rem;
+}
+
+#delete {
+  width: 8rem;
+}
+
+#delete:hover {
+  background-color: red;
+  color: #FAF9F6;
+  box-shadow: 4px 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+#sellerLink {
+  color: black;
+  text-decoration: none;
+}
+
+#sellerLink:hover {
+  text-decoration: underline;
+  background-color: unset;
+  box-shadow: none;
+}
+
+#purchase {
+  margin-top: 2rem;
+}
