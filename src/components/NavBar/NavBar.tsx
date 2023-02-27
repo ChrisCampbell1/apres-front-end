@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 // stylesheets and assets
 import styles from './NavBar.module.css'
+import logo from '/assets/logo-text-centered.png'
 
 // types
 import { User } from '../../types/models'
@@ -17,6 +18,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
   
   return (
     <nav className={styles.container}>
+      <img src={logo} alt="apres logo" />
       {user ?
         <ul>
           <li><NavLink to="/">Home</NavLink></li>

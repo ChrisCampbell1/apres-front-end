@@ -168,6 +168,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
         <textarea
           id="about"
           name="about"
+          rows={5}
           placeholder="Write a brief bio about you and your winter hobbies"
           onChange={handleChange}
         />
@@ -196,10 +197,12 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="photo-upload" className={styles.label}>
-          Upload Photo
-        </label>
+      <div className={styles.inputContainer} id={styles.upload}>
+        {photoData.photo !== null ?
+            <label htmlFor="photo-upload" className={styles.label}>Photo Added</label>
+            :
+            <label htmlFor="photo-upload" className={styles.label}>Upload Photo</label>
+          }
         <input
           type="file"
           id="photo-upload"
@@ -207,7 +210,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           onChange={handleChangePhoto}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div className={styles.inputContainer} id={styles.sideBySide}>
         <button 
           disabled={isFormInvalid() || isSubmitted} 
           className={styles.button}

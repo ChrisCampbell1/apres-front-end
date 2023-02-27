@@ -1,5 +1,15 @@
 .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 4px solid black;
+  margin-top: .5rem;
+}
 
+.container img{
+  height: 100px;
+  margin-left: 1rem;
 }
 
 .container li {

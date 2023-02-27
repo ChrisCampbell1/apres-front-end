@@ -7,5 +7,17 @@
 #hero {
   width: 100%;
   height: 600px;
-  object-fit:cover;
+  object-fit:contain;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.about article {
+  width: 40%;
+  font-size: 1.25rem;
+  margin-bottom: 5rem;
 }
