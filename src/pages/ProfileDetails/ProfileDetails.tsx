@@ -38,17 +38,24 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
 
   return (  
     <div className={styles.container}>
-      <h1>{location.state.name}</h1>
-      <img src={location.state.photo} alt="user avatar" />
-      {(user?.profile.id === location.state.id)
-        ?
-        // <Link to={`/`}>Edit Profile</Link> for icebox feature
-        <></>
-        :
-        <></>
-      }
-      <p>Location: {location.state.city}, {location.state.state}</p>
-      <p>{location.state.about}</p>
+      <div className={styles.sideBySide}>
+        <div>
+          <img src={location.state.photo} alt="user avatar" />
+        </div>
+        <div>
+          {(user?.profile.id === location.state.id)
+            ?
+            // <Link to={`/`}>Edit Profile</Link> for icebox feature
+            <></>
+            :
+            <></>
+          }
+          <h1>{location.state.name}</h1>
+          <p>Location: {location.state.city}, {location.state.state}</p>
+          <p>Member Since: {location.state.createdAt.slice(0,10)}</p>
+          <p>{location.state.about}</p>
+        </div>
+      </div>
       <h3>Listings</h3>
       {listings.length > 0 ?
         <ListingCardContainer listings={listings} user={user}/>
