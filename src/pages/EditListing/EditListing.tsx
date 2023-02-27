@@ -72,7 +72,7 @@ const EditListing = (props: EditListingProps): JSX.Element => {
             value={form.title}
           />
         </div>
-        <div className={styles.inputContainer}>
+        <div className={styles.inputContainer} id={styles.upload}>
           {photoData ?
             <label htmlFor="image-input" className={styles.photoInput}>Image Added</label>
             :

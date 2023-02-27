@@ -68,7 +68,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.inputContainer}>
+        <div className={styles.inputContainer} id={styles.upload}>
           {photoData ?
             <label htmlFor="image-input" className={styles.photoInput}>Image Added</label>
             :
@@ -119,7 +119,7 @@ const NewListing = (props: NewListingProps): JSX.Element => {
           <textarea 
             name='description'
             cols={10}
-            rows={10} 
+            rows={5} 
             required
             id='description-input'
             placeholder=''
