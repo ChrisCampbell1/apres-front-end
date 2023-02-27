@@ -30,7 +30,7 @@ h3 {
 .sideBySide img {
   width: 600px;
   height: 600px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 span {
