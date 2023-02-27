@@ -24,7 +24,8 @@ const NavBar = (props: NavBarProps): JSX.Element => {
       {user ?
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/all" className={styles.dropdown}>Listings</NavLink></li>
+          <li className={styles.dropdown}>
+            <NavLink to="/all">Listings</NavLink>
             <ul className={styles.dropdownContent}>
               <li><NavLink to="/skis">Skis</NavLink></li>
               <li><NavLink to="/ski-boots">Ski Boots</NavLink></li>
@@ -35,6 +36,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
               <li><NavLink to="/snowboard-boots">Snowboard Boots</NavLink></li>
               <li><NavLink to="/other">Other</NavLink></li>
             </ul>
+          </li>
           <li><NavLink to="/listings/new">Create Listing</NavLink></li>
           <li><NavLink to="/profiles">Profiles</NavLink></li>
           <li><NavLink to="/change-password">Change Password</NavLink></li>
