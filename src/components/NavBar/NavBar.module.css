@@ -7,6 +7,7 @@
   margin-top: .5rem;
 }
 
+
 .container img{
   height: 100px;
   margin-left: 1rem;
@@ -27,3 +28,41 @@
 .container a:hover {
   text-decoration: underline;
 }
+
+.dropdown {
+  /* float: left; */
+  overflow: hidden;
+}
+
+.dropdownContent {
+  /* display: none; */
+  position: absolute;
+  top: 80px;
+  /* z-index: 1000000; */
+  /* position: inherit; */
+}
+
+.dropdownContent ul {
+  padding: 0;
+}
+
+ul ul {
+  visibility: hidden;
+}
+
+ul ul a:hover {
+  color: red;
+}
+
+ul ul:hover li{
+  color: red;
+  visibility: visible;
+}
+
+/* #root > nav > ul > ul > li:nth-child(1) */
+
+.dropdown:hover > ul {
+  visibility: visible;
+}
+
+/* #root > nav > ul > ul */
