@@ -1,42 +1,39 @@
-Matterhorn image from PNGWing
-Snowflake icon from Icooon Mono on svgrepo
-landing page image from pixabay https://www.pexels.com/@pixabay/
-DM Sants font https://fonts.google.com/specimen/DM+Sans?query=dm
-
 # [Apres](https://apres.fly.dev/)
 ![apres screenshot](./public/assets/screenshot.png)
 
-## [Use Butter Here](https://butterapp.fly.dev/)
+## [Use Apres Here](https://butterapp.fly.dev/)
 
-about
+Everyone loves to apres after a long day on the slopes but who loves trying to find quality used ski or snowboarding equipment? Apres ski comes from the French word apres which means after. After you're done enjoying your skiing or snowboarding gear what should you do with it? Apres is the solution.
 
-Planning materials and original wireframes can be found [here](https://trello.com/b/l3p04IWp/butter-project-plan)
+As an avid skier, I've always wanted a platform like Apres to exist. There are all sorts of places online where you can buy and sell used items but I haven't found one that focuses on winter sports.
+
+I created Apres as a marketplace where users can create listings for the gear they no longer want. Potential buyers can filter those listings to find gear that they are looking for and connect with sellers to purchase their listings.
+
+This is a marketplace that can eventually expand into a full e-commerce platform. For now, transactions are handled outside of the marketplace. After selecting a listing to purchase, a buyer is provided the contact information of the seller so they can connect and arrange payment/pickup or shipping.
+
+Planning materials and original wireframes can be found [here](https://trello.com/b/SiHgbNMh/apres-planning)
 
 ## Technologies Used
+* TypeScript
+* React
 * Express
 * Node.js
-* Mongoose
-* MongoDB
-* Google OAuth
-* EJS
+* Sequelize
+* Postgresql
+* SWT Authentication
 * JavaScript
 * HTML
 * CSS
 * Git
 * Canva
-* [Edamam API](https://www.edamam.com/)
-* Cheerio
-* Axios
 
 ## Credits
-* Background video on login screen from [Polina Kovaleva](https://www.pexels.com/@polina-kovaleva/)
-* Button styling inspiration from [CSS Scan](https://getcssscan.com/)
-* Dropdown menu template from [CSS Tricks](https://css-tricks.com/)
-* Web Scraping help from [Kevin Sahin](https://www.scrapingbee.com/blog/web-scraping-javascript/) at [ScrapingBee](https://www.scrapingbee.com)
+* Snowflake icon from [Icooon Mono](https://www.svgrepo.com/author/Icooon%20Mono/) on svgrepo
+* landing page video from canva
+* DM Sants font from [Google Fonts](https://fonts.google.com/specimen/DM+Sans?query=dm)
 
 ## Ice Box
-- [x] Implement web-scraping a user can import a recipe without manually entering data
-- [ ] Increase the number of supported sources for web-scraping
-- [ ] Add recipe categories for easier searching as the recipe database grows
-- [ ] Only show original recipes in the user submitted recipes section
-- [ ] Let users save a bio in their profile
+- [ ] Allow users to review their orders from sellers
+- [ ] Allow users to edit their profile
+- [ ] Allow users to see a list of their orders
+- [ ] Implement messaging between users
