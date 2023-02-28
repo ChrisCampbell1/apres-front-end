@@ -16,7 +16,6 @@ const ProductDetail = (): JSX.Element => {
   const navigate = useNavigate()
   const params = useParams()
   const location = useLocation()
-  console.log(location)
   const profileId = location.state.user?.profile.id
   const { id } = params
   const [listing, setListing] = useState<Listing>()
@@ -24,10 +23,12 @@ const ProductDetail = (): JSX.Element => {
 
   async function handlePurchaseClick(): Promise<void> {
     try {
-      await listingService.purchaseListing(listing?.id)
-      navigate('/confirmation', {
-        state: {listing}
-      })
+      if (id && listing) {
+        await listingService.purchaseListing(listing.id)
+        navigate('/confirmation', {
+          state: {listing}
+        })
+      } else return
     } catch (error) {
       console.log(error)
     }
@@ -45,8 +46,10 @@ const ProductDetail = (): JSX.Element => {
   useEffect(():void =>{
     async function fetchListing(): Promise<void> {
       try {
-        const listingData = await listingService.getListing(id)
-        setListing(listingData)
+        if (id){
+          const listingData = await listingService.getListing(id)
+          setListing(listingData)
+        } else return
       } catch (error) {
         console.log(error)
       }

@@ -27,7 +27,7 @@ async function getUserListings(userId: number): Promise<Listing[]> {
   }
 }
 
-async function getListing(id: string | undefined): Promise<Listing> {
+async function getListing(id: string): Promise<Listing> {
   try {
     const res = await fetch(`${BASE_URL}/${id}`)
     return await res.json() as Listing
@@ -36,7 +36,7 @@ async function getListing(id: string | undefined): Promise<Listing> {
   }
 }
 
-async function purchaseListing(id: number | undefined): Promise<Listing> {
+async function purchaseListing(id: number ): Promise<Listing> {
   try {
     const res = await fetch(`${BASE_URL}/${id}/purchase`, {
       method: 'PUT',
