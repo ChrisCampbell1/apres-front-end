@@ -49,3 +49,57 @@ ul li:hover > ul,
 ul li ul:hover{
   visibility: visible;
 }
+
+.mobileNav{
+  visibility: hidden;
+  display: none;
+}
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    visibility: hidden;
+    display: none;
+  }
+
+  .mobileNav {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    text-align: center;
+    background-color: black;
+    font-size: 1.5rem;
+  }
+
+  .mobileNav ul{
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobileNav a{
+    text-decoration: none;
+    color: #FAF9F6;
+  }
+
+  #hamburger {
+    color: #FAF9F6;
+    font-size: 2rem;
+    text-align: right;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
+  }
+
+  #white {
+    height: 5rem;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header{
+    display: flex;
+    flex-direction: row;
+  }
+}
