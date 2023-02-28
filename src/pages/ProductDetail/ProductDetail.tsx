@@ -66,11 +66,11 @@ const ProductDetail = (): JSX.Element => {
           </div>
           <div>
             <h1>{listing?.title}</h1>
-            <p>{listing?.status}</p>
+            <p><span>Price: </span>${listing?.price}</p>
+            <p><span>Status: </span>{listing?.status}</p>
             <p><span>Listed by: </span><Link to={`/profiles/${listing?.sellerId}`} id={styles.sellerLink}>{listing?.seller.name}</Link> on {listing?.createdAt.slice(0,10)}</p>
             <p><span>Description:</span></p>
             <p>{listing?.description}</p>
-            <p><span>Price: </span>${listing?.price}</p>
             <p><span>Condition: </span>{arr.map((el: number): JSX.Element => (
             el <= listing?.condition ?
             <img
