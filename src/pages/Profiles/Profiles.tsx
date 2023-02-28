@@ -33,7 +33,6 @@ const Profiles = (): JSX.Element => {
       <h1>User Directory</h1>
       <div className={styles.container}>
         {profiles.map((profile: Profile) =>
-          // <p key={profile.id}>{profile.name}</p>
           <Link to={`/profiles/${profile.id}`} state={profile} key={profile.id}>
             <div key={profile.id} className={styles.profileCard}>
               <img src={profile.photo} alt="user avatar" />

@@ -6,10 +6,6 @@
   margin: 1rem;
 }
 
-.container:hover {
-  background-color: aliceblue;
-}
-
 .container p {
   margin-top: 0;
   margin-bottom: .25rem;
@@ -36,4 +32,20 @@
   height: 1rem;
   width: 1rem;
   margin: 0;
+}
+
+.buttons {
+  border: 1px solid black;
+  padding: .5rem;
+  margin-right: 1rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.buttons:hover {
+  background-color: black;
+  color: #FAF9F6;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }

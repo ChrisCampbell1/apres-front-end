@@ -26,10 +26,6 @@
   margin: 1rem;
 }
 
-.profileCard:hover {
-  background-color: aliceblue;
-}
-
 .profileCard img{
   height: 300px;
   width: 300px;
