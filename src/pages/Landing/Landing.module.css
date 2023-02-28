@@ -4,14 +4,8 @@
   flex-direction: column;
 }
 
-.cta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .container .buttons {
-  padding: 0;
+  margin-top: 3rem;
 }
 
 .container .buttons a{
@@ -55,9 +49,29 @@
 .landingHero h1 {
   text-align: left;
   font-size: 2.5rem;
+  margin: 0;
+  font-weight: bold;
 }
 
 .colorblock {
   background-color: hsla(45, 29%, 97%, 0.8);
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .landingHero{
+    height: calc(100vh - 88px);
+  }
+
+  .landingHero .text {
+    padding: 0;
+  }
+  
+  .colorblock {
+    text-align: center;
+  }
+
+  .landingHero h1 {
+    text-align: center;
+  }
 }

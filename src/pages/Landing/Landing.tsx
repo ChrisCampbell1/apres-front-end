@@ -20,13 +20,12 @@ const Landing = (props: LandingProps): JSX.Element => {
         <div className={styles.text}>
           <div className={styles.colorblock}>
             <div className={styles.cta}>
-              <h1>Browse listings now</h1>
+              <h1>Welcome to Après</h1>
               <div className={styles.buttons}>
                 <Link to={'/all'}>Shop Now</Link>
               </div>
             </div>
             <div className={styles.cta}>
-              <h1>List your gear</h1>
               <div className={styles.buttons}>
                 {user ?
                 <>

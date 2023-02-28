@@ -80,7 +80,9 @@ const NavBar = (props: NavBarProps): JSX.Element => {
     </nav>
     <div className={styles.mobileNav}>
       <div className={styles.header}>
-      <img src={white} alt="apres logo" id={styles.white} />
+      <NavLink to={'/'}>
+        <img src={white} alt="apres logo" id={styles.white} />
+      </NavLink>
       <p id={styles.hamburger} onClick={() => handleClick()}>☰</p>
       </div>
       {open &&
