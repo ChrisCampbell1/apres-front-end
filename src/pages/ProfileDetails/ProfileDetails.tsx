@@ -28,6 +28,7 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
     async function fetchListings(): Promise<void> {
       try {
         const listingData = await listingService.getUserListings(location.state.id)
+        listingData.sort((a, b) => (a.createdAt > b.createdAt) ? -1 : 1)
         setListings(listingData)
       } catch (error) {
         console.log(error)

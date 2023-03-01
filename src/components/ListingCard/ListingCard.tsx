@@ -23,6 +23,7 @@ const ListingCard = (props: ListingCardProps): JSX.Element => {
         <img src={listing.image} alt="product image" />
         <p id={styles.title}>{listing.title}</p>
         <p>${listing.price}</p>
+        <p>{listing.status}</p>
         <p>Location: {listing?.seller.city}, {listing.seller.state}</p>
         <p>Condition: {arr.map((el: number): JSX.Element => (
           el <= listing.condition ?

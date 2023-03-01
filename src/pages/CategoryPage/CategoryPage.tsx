@@ -28,6 +28,7 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
     async function fetchListings(): Promise<void> {
       try {
         const listingData = await listingService.getListings(category)
+        listingData.sort((a, b) => (a.createdAt > b.createdAt) ? -1 : 1)
         setListings(listingData)
       } catch (error) {
         console.log(error)
