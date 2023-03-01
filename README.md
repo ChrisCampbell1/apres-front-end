@@ -1,13 +1,13 @@
-# [Apres](https://apres.fly.dev/)
+# [Après](https://apres.fly.dev/)
 ![apres screenshot](./public/assets/screenshot.png)
 
-## [Use Apres Here](https://butterapp.fly.dev/)
+## [Use Après Here](https://butterapp.fly.dev/)
 
-Everyone loves to apres after a long day on the slopes but who loves trying to find quality used ski or snowboarding equipment? Apres ski comes from the French word apres which means after. After you're done enjoying your skiing or snowboarding gear what should you do with it? Apres is the solution.
+Everyone loves to après after a long day on the slopes but who loves trying to find quality used ski or snowboarding equipment? Après ski comes from the French word for after. After you're done enjoying your skiing or snowboarding gear what should you do with it? Après is the solution.
 
-As an avid skier, I've always wanted a platform like Apres to exist. There are all sorts of places online where you can buy and sell used items but I haven't found one that focuses on winter sports.
+As an avid skier, I've always wanted a platform like Après to exist. There are all sorts of places online where you can buy and sell used items but I haven't found one that focuses on winter sports.
 
-I created Apres as a marketplace where users can create listings for the gear they no longer want. Potential buyers can filter those listings to find gear that they are looking for and connect with sellers to purchase their listings.
+I created Après as a marketplace where users can create listings for the gear they no longer want. Potential buyers can filter those listings to find gear that they are looking for and connect with sellers to purchase their listings.
 
 This is a marketplace that can eventually expand into a full e-commerce platform. For now, transactions are handled outside of the marketplace. After selecting a listing to purchase, a buyer is provided the contact information of the seller so they can connect and arrange payment/pickup or shipping.
 
@@ -29,7 +29,7 @@ Planning materials and original wireframes can be found [here](https://trello.co
 
 ## Credits
 * Snowflake icon from [Icooon Mono](https://www.svgrepo.com/author/Icooon%20Mono/) on svgrepo
-* landing page video from canva
+* Landing page image by [Pixabay](https://www.pexels.com/@pixabay/)
 * DM Sants font from [Google Fonts](https://fonts.google.com/specimen/DM+Sans?query=dm)
 
 ## Ice Box
