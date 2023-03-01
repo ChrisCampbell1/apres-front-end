@@ -37,3 +37,4 @@ Planning materials and original wireframes can be found [here](https://trello.co
 - [ ] Allow users to edit their profile
 - [ ] Allow users to see a list of their orders
 - [ ] Implement messaging between users
+- [ ] Implement filters for state and recency for listings

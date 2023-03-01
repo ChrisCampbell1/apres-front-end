@@ -37,26 +37,18 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
     fetchListings()
   }, [category])
 
-  function handleFilterClick(price: number | null, recencey: string | null, condition: number | null, state: string | null): void {
-    if (price !==  null) {
-      const result = listings.filter(listing => listing.price <= price)
-      setListings(result)
-    }
-    if (condition !== null) {
-      const result = listings.filter(listing => listing.condition >= condition)
-      setListings(result)
-    }
-    if (state !== null) {
-      const result = listings.filter(listing => listing.seller.state === state)
-      setListings(result)
-    }
+  function handleFilterClick(price: number, recencey: string | null, condition: number, state: string | null): void {
+    const result = listings.filter(listing => listing.price <= price && listing.condition >= condition)
+    setListings(result)
+
+    // }
     // icebox
     // if (recencey !== null) {
     //   if (recencey === "first") {
     //     listings.sort((a, b): Listing[] => {a.createdAt - b.createdAt})
     //   }
     // }
-  }
+    }
 
   function handleFilterResetClick(): void {
     async function fetchListings(): Promise<void> {

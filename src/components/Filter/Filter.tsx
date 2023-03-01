@@ -10,16 +10,16 @@ import { FilterData } from '../../types/forms';
 interface FilterProps {
   minPrice: number;
   maxPrice: number;
-  handleFilterClick: (price: number | null, recencey: string | null, condition: number | null, state: string | null) => void;
+  handleFilterClick: (price: number, recencey: string | null, condition: number, state: string | null) => void;
   handleFilterResetClick: () => void;
 }
 
 const Filter = (props: FilterProps): JSX.Element => {
   const {minPrice, maxPrice, handleFilterClick, handleFilterResetClick} = props
 
-  const [priceFilter, setPriceFilter] = useState<number | null>(null)
+  const [priceFilter, setPriceFilter] = useState<number>(maxPrice)
   const [recencyFilter, setRecencyFilter] = useState<string | null>(null)
-  const [conditionFilter, setConditionFilter] = useState<number | null>(null)
+  const [conditionFilter, setConditionFilter] = useState<number>(1)
   const [stateFilter, setStateFilter] = useState<string | null>(null)
 
   function handlePriceChange(evt: React.ChangeEvent<HTMLInputElement>): void {
@@ -68,15 +68,15 @@ const Filter = (props: FilterProps): JSX.Element => {
         id="condition"
         onChange={handleConditionChange}
       >
-        <option value=""></option>
+        <option value="1"></option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <label htmlFor="state">Filter by State</label>
-      <select
+      {/* <label htmlFor="state">Filter by State</label> */}
+      {/* <select    this is an icebox feature
         name="state"
         id="state"
         onChange={handleStateChange}
@@ -133,7 +133,7 @@ const Filter = (props: FilterProps): JSX.Element => {
         <option value="WV">West Virginia</option>
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
-      </select>
+      </select> */}
       <button onClick={() => handleFilterClick(priceFilter, recencyFilter, conditionFilter, stateFilter)}>Filter Listigns</button>
       <button onClick={() => handleFilterResetClick()}>Reset Filters</button>
     </div>
