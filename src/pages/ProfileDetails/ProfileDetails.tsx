@@ -56,7 +56,7 @@ const ProfileDetails = (props: ProfileDetailsProps): JSX.Element => {
           <p>{location.state.about}</p>
         </div>
       </div>
-      <h3>Listings</h3>
+      <h2>Listings</h2>
       {listings.length > 0 ?
         <ListingCardContainer listings={listings} user={user}/>
       :

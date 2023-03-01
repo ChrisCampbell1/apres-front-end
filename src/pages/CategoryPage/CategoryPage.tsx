@@ -49,6 +49,7 @@ const CategoryPage = (props: CategoryPageProps): JSX.Element => {
       const result = listings.filter(listing => listing.seller.state === state)
       setListings(result)
     }
+    // icebox
     // if (recencey !== null) {
     //   if (recencey === "first") {
     //     listings.sort((a, b): Listing[] => {a.createdAt - b.createdAt})

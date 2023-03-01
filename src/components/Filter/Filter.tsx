@@ -52,7 +52,7 @@ const Filter = (props: FilterProps): JSX.Element => {
         onChange={handlePriceChange}
       />
       <p>Max Price: ${priceFilter}</p>
-      {/* <label htmlFor="recency">Newest Listings</label>
+      {/* <label htmlFor="recency">Newest Listings</label> commented out for icebox feature
       <select
         name="recency"
         id="recency"

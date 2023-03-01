@@ -30,6 +30,10 @@ h3 {
   object-fit: cover;
 }
 
+h2 {
+  text-align: center;
+}
+
 @media only screen and (max-width: 400px) {
   .sideBySide{
     flex-direction: column;
