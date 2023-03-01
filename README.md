@@ -1,7 +1,7 @@
-# [Après](https://apres.fly.dev/)
+# [Après](https://apres.netlify.app/)
 ![apres screenshot](./public/assets/screenshot.png)
 
-## [Use Après Here](https://butterapp.fly.dev/)
+## [Use Après Here](https://apres.netlify.app/)
 
 Everyone loves to après after a long day on the slopes but who loves trying to find quality used ski or snowboarding equipment? Après ski comes from the French word for after. After you're done enjoying your skiing or snowboarding gear what should you do with it? Après is the solution.
 
