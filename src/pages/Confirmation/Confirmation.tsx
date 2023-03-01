@@ -5,9 +5,12 @@ import { Link } from 'react-router-dom'
 // assets and stylesheets
 import styles from './Confirmation.module.css'
 
+//types
+import { Listing } from '../../types/models'
+
 const Confirmation = (): JSX.Element => {
   const location = useLocation()
-  const listing = location.state.listing
+  const listing: Listing = location.state.listing
   
   return (  
     <div className={styles.container}>
@@ -19,7 +22,7 @@ const Confirmation = (): JSX.Element => {
         <div className={styles.right}>
           <p>Order: {listing.id}</p>
           <p>Price: {listing.price}</p>
-          <p>Seller: <Link to={`/profiles/${listing.seller.id}`}>{listing.seller.name}</Link></p>
+          <p>Seller: <Link to={`/profiles/${listing.seller.id}`} state={listing.seller}>{listing.seller.name}</Link></p>
           
           <p>You can get in touch with the seller to facilitate payment and shipping/puckup. Their email is: <a href={`mailto:${listing.seller.email}`}>{listing.seller.email}</a></p>
         </div>
