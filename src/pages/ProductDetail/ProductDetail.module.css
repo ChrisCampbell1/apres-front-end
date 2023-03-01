@@ -102,6 +102,7 @@ span {
     width: 350px;
     height: 350px;
     object-fit: contain;
+    margin-top: 1rem;
   }
 
   .sideBySide div {

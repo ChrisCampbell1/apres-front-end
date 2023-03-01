@@ -24,4 +24,8 @@ h1 {
   .listings{
     flex-direction: column;
   }
+
+  .container .empty {
+    text-align: center;
+  }
 }
