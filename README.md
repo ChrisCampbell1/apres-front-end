@@ -11,16 +11,16 @@ I created Après as a marketplace where users can create listings for the gear t
 
 This is a marketplace that can eventually expand into a full e-commerce platform. For now, transactions are handled outside of the marketplace. After selecting a listing to purchase, a buyer is provided the contact information of the seller so they can connect and arrange payment/pickup or shipping.
 
-Planning materials and original wireframes can be found [here](https://trello.com/b/SiHgbNMh/apres-planning)
+Planning materials and original wireframes can be found [here](https://trello.com/b/SiHgbNMh/apres-planning).
 
 ## Technologies Used
 * TypeScript
-* React
-* Express
+* React.js
+* Express.js
 * Node.js
 * Sequelize
-* Postgresql
-* SWT Authentication
+* PostgreSQL
+* JWT Authentication
 * JavaScript
 * HTML
 * CSS
